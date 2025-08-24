@@ -13,6 +13,9 @@ import VerifyOTP from "./pages/Auth/VerifyOTP"; // 1. Import the new page
 import Home from "./pages/Dashboard/Home";
 import Income from "./pages/Dashboard/Income";
 import Expense from "./pages/Dashboard/Expense";
+import Goals from "./pages/Dashboard/Goals";
+import Profile from "./pages/Dashboard/Profile";
+import AllTransactions from "./pages/Dashboard/AllTransactions";
 
 import UserProvider from "./context/userContext";
 import { Toaster } from "react-hot-toast";
@@ -53,6 +56,30 @@ const App = () => {
               element={
                 <PrivateRoute>
                   <Expense />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/goals"
+              element={
+                <PrivateRoute>
+                  <Goals />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/transactions"
+              element={
+                <PrivateRoute>
+                  <AllTransactions />
                 </PrivateRoute>
               }
             />

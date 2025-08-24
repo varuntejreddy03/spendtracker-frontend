@@ -10,7 +10,7 @@ const RecentTransactions = ({ transactions, onSeeMore }) => {
         <h5 className="text-lg">Recent Transactions</h5>
 
         <button className="card-btn" onClick={onSeeMore}>
-          See All <LuArrowRight className="text-base" />
+          See All Transactions <LuArrowRight className="text-base" />
         </button>
       </div>
 
