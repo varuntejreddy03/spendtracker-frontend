@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://spenttracker-backend.onrender.com/';
+export const BASE_URL = 'https://spenttracker-backend.onrender.com';
 
 export const API_PATHS = {
     AUTH: {

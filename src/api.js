@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Use environment variable, fallback to localhost for local dev
-const baseURL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+const baseURL = import.meta.env.VITE_API_BASE_URL || "https://spenttracker-backend.onrender.com";
 
 // Create axios instance
 const api = axios.create({
