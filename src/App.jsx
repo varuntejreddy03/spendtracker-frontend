@@ -9,7 +9,7 @@ import {
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/SignUp";
-import VerifyOTP from "./pages/Auth/VerifyOTP";
+import VerifyOTP from "./pages/Auth/VerifyOTP"; // 1. Import the new page
 import Home from "./pages/Dashboard/Home";
 import Income from "./pages/Dashboard/Income";
 import Expense from "./pages/Dashboard/Expense";
@@ -18,35 +18,18 @@ import UserProvider from "./context/userContext";
 import { Toaster } from "react-hot-toast";
 
 const App = () => {
-  const isAuthenticated = !!localStorage.getItem("token");
-
   return (
     <UserProvider>
       <div>
         <Router>
           <Routes>
-            {/* Default route: redirect to dashboard if logged in, else landing */}
-            <Route
-              path="/"
-              element={
-                isAuthenticated ? <Navigate to="/dashboard" /> : <LandingPage />
-              }
-            />
+            {/* Default route */}
+            <Route path="/" element={<LandingPage />} />
 
             {/* Auth Routes */}
-            <Route
-              path="/login"
-              element={
-                isAuthenticated ? <Navigate to="/dashboard" /> : <Login />
-              }
-            />
-            <Route
-              path="/signup"
-              element={
-                isAuthenticated ? <Navigate to="/dashboard" /> : <SignUp />
-              }
-            />
-            <Route path="/verify-otp" element={<VerifyOTP />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/verify-otp" element={<VerifyOTP />} /> {/* 2. Add the new route */}
 
             {/* Dashboard (protected) */}
             <Route
@@ -91,7 +74,7 @@ const App = () => {
 
 export default App;
 
-// PrivateRoute to protect dashboard pages
+// Your PrivateRoute component is correct and remains the same
 const PrivateRoute = ({ children }) => {
   const isAuthenticated = !!localStorage.getItem("token");
   return isAuthenticated ? children : <Navigate to="/login" />;
